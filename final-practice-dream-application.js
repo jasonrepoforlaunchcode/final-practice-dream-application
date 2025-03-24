@@ -1,5 +1,6 @@
 //Note: You can search for "Lesson" to find all the comments explaining where each skill was covered.
 //Note: There are a lot of if-else statements, so I avoided putting a "Lesson: Control Structures and Logic" comment next to all of them. I hope that's okay and makes it more readable.
+//Note: The wikipedia article on the circle of fifths has a handy diagram: https://en.wikipedia.org/wiki/Circle_of_fifths
 
 //pseudocode overview:
 //chord1 = getUserInput()
@@ -25,12 +26,12 @@ let eMinor7 = "egbd";//From C major, brightness to E minor should be 1
 let aMajor7= "ac♯eg";//From C major, brightness to A major should be 3
 let bFlatMajor7 = "dfab♭";//1st inversion. From C major, brightness to Bflat majorshould be -2
 let eFlatMinor7 = "d♭e♭g♭b♭";//3rd inversion. From C major, brightness to Eflat minor should be 6 (or -6, same distance)
-let fSharpMajor = "f♯a♯c♯";//From C major, brightness to Fsharp major should be 1
+let fSharpMajor = "f♯a♯c♯";//From C major, brightness to Fsharp major should be 6
 
 //Getting chord info from the user, or from the sound file.
-let firstChord = cMajor;
+let firstChord = cMajorFullOfGarbage;
 
-let secondChord = fSharpMajor;
+let secondChord = gMajor;
 
 console.log("The chords entered are " + firstChord + " and " + secondChord);//*Lesson: Stringing Characters Together*
 
@@ -44,7 +45,7 @@ console.log("Chord two in root position is: " + chord2Root.join(""));//*Lesson: 
 
 let cToGBrightness = getBrightness(chord1Root, chord2Root);//Takes two chords and rates the modulation according to its movement along the circle of fifths.
 
-console.log(`The brightness modulating from ${firstChord}(${chord1Root.join("")}) to ${secondChord}(${chord2Root.join("")}) is ${cToGBrightness}`);//*Lesson: Stringing Characters Together*
+console.log(`The brightness modulating from "${firstChord}(${chord1Root.join("")})" to "${secondChord}(${chord2Root.join("")})" is ${cToGBrightness}`);//*Lesson: Stringing Characters Together*
 
 
 function getNoteArray(chord){
@@ -102,9 +103,9 @@ function toRootPosition(chord){
 //      distance = root2PositionOnCircleOfFifths - root1PositionOnCircleOfFifths 
 //  else if chords are different tonality:
 //      if chord1Root === minor:
-//          adjust to relative major
+//          adjust chord1Root to relative major
 //      if chord2Root === minor:
-//          adjust to relative major
+//          adjust chord2Root to relative major
 //      distance = root2PositionOnCircleOfFifths - root1PositionOnCircleOfFifths 
 //  return distance(brightness)
 function getBrightness(chord1, chord2) {
